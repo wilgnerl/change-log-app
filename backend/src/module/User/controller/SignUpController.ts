@@ -5,7 +5,7 @@ import { SignUp } from "../../domain/usecases";
 
 export class SignUpController implements Controller{
 	constructor(
-        private readonly SignUpUseCase: SignUp
+        private readonly signUpUseCase: SignUp
 	){}
 	async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 		try{
@@ -17,7 +17,7 @@ export class SignUpController implements Controller{
 			}
 			const {email, password, passwordConfirmation} = httpRequest.body;
 
-			const response = await this.SignUpUseCase.execute({email, password, passwordConfirmation});
+			const response = await this.signUpUseCase.execute({email, password, passwordConfirmation});
 
 			if(!response){
 				return badRequest(new SignUpError());
@@ -25,7 +25,6 @@ export class SignUpController implements Controller{
 
 			return sucess("SignUp Completed !!");
 		} catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}
