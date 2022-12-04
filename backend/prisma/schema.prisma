@@ -32,5 +32,5 @@ model Card{
     creator User @relation(fields: [createdBy], references: [id])
     createdBy String
     descriptions Json[]
-    status Status
+    status Status @default(InProgress)
 }
