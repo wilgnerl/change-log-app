@@ -1,8 +1,16 @@
-import { CardRepository, CreateInput, DeleteInput, FindByIdInput } from "../domain/repository";
+import { CardRepository, CreateInput, DeleteInput, FindByIdInput, ListAllInput } from "../domain/repository";
 import prisma from "../../../shared/infra/database/Prisma/Database";
 import { Card, Prisma } from "@prisma/client";
 
 export class CardDatabase implements CardRepository{
+	async listAll({page, limit}: ListAllInput): Promise<Card[]> {
+		const cards = await prisma.card.findMany({
+			skip:(page-1)*limit,
+			take:limit
+		});
+
+		return cards;
+	}
 	async findById({cardId}: FindByIdInput): Promise<boolean | Card> {
 		const card = await prisma.card.findFirst({
 			where:{
