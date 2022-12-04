@@ -4,6 +4,7 @@ export interface CreateInput{
     title: string
     createdBy: string
     description: unknown
+    creatorName: string
 }
 
 export interface FindByIdInput{
@@ -12,6 +13,14 @@ export interface FindByIdInput{
 
 export interface DeleteInput{
     cardId: string
+}
+
+export interface listAllWithFilterInput{
+    page: number
+    limit: number
+    createdAt?: Date
+    creator?: string
+    title?: string
 }
 
 export interface ListAllInput{
@@ -37,6 +46,7 @@ export interface CardRepository{
     findById(input: FindByIdInput): Promise<Card|boolean>
     delete(input: DeleteInput): Promise<boolean>
     listAll(input: ListAllInput): Promise<Card[]>
+    listAllWithFilter(input: listAllWithFilterInput): Promise<Card[]>
     update(input: UpdateCardInput): Promise<boolean>
     
 }

@@ -17,6 +17,8 @@ model User{
     password String
     refreshToken    String?
     cards Card[]
+
+    @@unique([id, name])
 }
 
 enum Status {
@@ -29,8 +31,9 @@ model Card{
     title   String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    creator User @relation(fields: [createdBy], references: [id])
+    creator User @relation(fields: [createdBy, creatorName], references: [id, name])
     createdBy String
+    creatorName String
     descriptions Json[]
     status Status @default(InProgress)
 }

@@ -8,9 +8,9 @@ export class ListCardsController implements Controller{
 	){}
 	async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 		try{
-			const page = Number(httpRequest.query.page);
-			const limit = Number(httpRequest.query.limit);
-
+			const page = httpRequest.query.page === "" ? 1 : Number(httpRequest.query.page);
+			const limit = httpRequest.query.limit === "" ? 10 : Number(httpRequest.query.limit);
+			
 			const response = await this.listCardsUseCase.execute({page, limit});
 
 			return sucess(response);
