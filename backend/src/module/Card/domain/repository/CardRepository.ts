@@ -28,7 +28,7 @@ export interface UpdateCardInput{
         text: string,
         createdAt: string,
         createdBy: string
-    }[]
+    }[] | any
     status: Status
 }
 

@@ -18,7 +18,7 @@ export class RefreshController implements Controller{
 			const {userId, refreshToken} = httpRequest.body;
 
 			const response = await this.verifyRefreshTokenUseCase.execute({userId, refreshToken});
-			console.log(response);
+			
 			if(!response){
 				return badRequest(new VerifyRefreshTokenError());
 			}
