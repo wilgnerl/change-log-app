@@ -1,7 +1,6 @@
-import { CreateInput, FindByEmailInput, UpdateInput, UserRepository } from "../domain/repository";
-import { PrismaClient, User } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { CreateInput, FindByEmailInput, FindByIdInput, UpdateInput, UserRepository } from "../domain/repository";
+import { User } from "@prisma/client";
+import prisma from "../../../shared/infra/database/Prisma/Database";
 
 export class UserDatabase implements UserRepository{
     
@@ -23,7 +22,20 @@ export class UserDatabase implements UserRepository{
 			}
 		});
 
-		if(!userExists){
+		if(userExists === null){
+			return false;
+		}
+
+		return userExists;
+	}
+	async findById({id}: FindByIdInput): Promise<User|boolean> {
+		const userExists = await prisma.user.findFirst({
+			where:{
+				id
+			}
+		});
+
+		if(userExists === null){
 			return false;
 		}
 

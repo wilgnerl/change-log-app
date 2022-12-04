@@ -1,5 +1,5 @@
-import { Token } from "../protocols/Token";
 import jwt from "jsonwebtoken";
+import { Token } from "../protocols/Token";
 
 export class JWT implements Token{
 	constructor(
@@ -13,8 +13,11 @@ export class JWT implements Token{
 	async generateRefreshToken(plainText: string): Promise<string> {
 		return jwt.sign({id: plainText}, this.secretRefreshToken, {expiresIn: 86400});
 	}
-	async decrypt(plainText: string): Promise<string> {
-		return jwt.verify(plainText, this.secretAccessToken) as any;
+	async decryptAccessToken(plainText: string): Promise<any> {
+		return jwt.verify(plainText, this.secretAccessToken);
+	}
+	async decryptRefreshToken(plainText: string): Promise<any> {
+		return jwt.verify(plainText, this.secretRefreshToken);
 	}
 
 }

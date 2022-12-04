@@ -10,6 +10,10 @@ export interface FindByEmailInput{
     email: string
 }
 
+export interface FindByIdInput{
+    id: string
+}
+
 export interface UpdateInput{
     userId: string
     name?: string
@@ -19,5 +23,6 @@ export interface UpdateInput{
 export interface UserRepository{
     create(input: CreateInput): Promise<boolean>
     findByEmail(input: FindByEmailInput): Promise<User|boolean>
+    findById(input: FindByIdInput): Promise<User|boolean>
     update(input: UpdateInput): Promise<boolean>
 }

@@ -1,7 +1,7 @@
-import { SignIn } from "../../../module/User/domain/usecases";
-import { UserDatabase } from "../../../module/User/repository";
-import { SignInUseCase } from "../../../module/User/usecase";
-import { JWT, Bcrypt } from "../../../shared/infra/cryptography";
+import { SignIn } from "../../../../module/User/domain/usecases";
+import { UserDatabase } from "../../../../module/User/repository";
+import { SignInUseCase } from "../../../../module/User/usecase";
+import { JWT, Bcrypt } from "../../../../shared/infra/cryptography";
 
 export const MakeSignInUseCase = (): SignIn => {
 	const userRepository = new UserDatabase();
