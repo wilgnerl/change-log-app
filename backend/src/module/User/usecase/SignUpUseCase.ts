@@ -7,7 +7,7 @@ export class SignUpUseCase implements SignUp{
         private readonly userRepository: UserRepository,
         private readonly bcrypt: Bcrypt
 	){}
-	async execute({email, password, passwordConfirmation}: SignUpInput): Promise<boolean> {
+	async execute({email, password, passwordConfirmation, name}: SignUpInput): Promise<boolean> {
 		const userExists = await this.userRepository.findByEmail({email});
 		if(userExists){
 			return false;
@@ -18,7 +18,7 @@ export class SignUpUseCase implements SignUp{
 		}
 
 		const passwordHashed = await this.bcrypt.hash(password); 
-		await this.userRepository.create({email, passwordHashed});
+		await this.userRepository.create({email, passwordHashed, name});
         
 		return true;
 	}

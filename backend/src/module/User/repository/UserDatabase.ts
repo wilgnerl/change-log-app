@@ -1,14 +1,16 @@
-import { CreateInput, FindByEmailInput, UserRepository } from "../../domain/repository";
+import { CreateInput, FindByEmailInput, UpdateInput, UserRepository } from "../../domain/repository";
 import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export class UserDatabase implements UserRepository{
-	async create({email, passwordHashed}: CreateInput): Promise<boolean> {
+    
+	async create({email, passwordHashed, name}: CreateInput): Promise<boolean> {
 		await prisma.user.create({
 			data:{
 				email,
-				password: passwordHashed
+				password: passwordHashed,
+				name
 			}
 		});
         
@@ -27,5 +29,17 @@ export class UserDatabase implements UserRepository{
 
 		return userExists;
 	}
+	async update({userId, ...restOfInput}: UpdateInput): Promise<boolean> {
+		await prisma.user.update({
+			where:{
+				id: userId
+			},
+			data:restOfInput
+		});
+
+		return true;
+	}
+
+
     
 }

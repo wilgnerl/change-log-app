@@ -9,15 +9,15 @@ export class SignUpController implements Controller{
 	){}
 	async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 		try{
-			const paramsRequired = ["email", "password", "passwordConfirmation"];
+			const paramsRequired = ["email", "password", "passwordConfirmation", "name"];
 			for(const param of paramsRequired){
 				if(!httpRequest.body[param]){
 					return badRequest(new MissingParamError(param));
 				}
 			}
-			const {email, password, passwordConfirmation} = httpRequest.body;
+			const {email, password, passwordConfirmation, name} = httpRequest.body;
 
-			const response = await this.signUpUseCase.execute({email, password, passwordConfirmation});
+			const response = await this.signUpUseCase.execute({name, email, password, passwordConfirmation});
 
 			if(!response){
 				return badRequest(new SignUpError());
