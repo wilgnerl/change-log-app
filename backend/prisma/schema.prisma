@@ -12,8 +12,10 @@ datasource db {
 
 model User{
     id      String @id @default(uuid())
+    name    String
     email   String
     password String
+    refreshToken    String?
     cards Card[]
 }
 
