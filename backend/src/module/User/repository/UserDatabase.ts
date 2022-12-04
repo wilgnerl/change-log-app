@@ -1,4 +1,4 @@
-import { CreateInput, FindByEmailInput, UpdateInput, UserRepository } from "../../domain/repository";
+import { CreateInput, FindByEmailInput, UpdateInput, UserRepository } from "../domain/repository";
 import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();

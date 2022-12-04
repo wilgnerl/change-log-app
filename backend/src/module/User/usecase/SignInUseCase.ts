@@ -1,7 +1,7 @@
 import { User } from "@prisma/client";
 import { Bcrypt, JWT } from "../../../shared/infra/cryptography";
-import { UserRepository } from "../../domain/repository";
-import { SignIn, SignInInput, SignInOutput } from "../../domain/usecases";
+import { UserRepository } from "../domain/repository";
+import { SignIn, SignInInput, SignInOutput } from "../domain/usecases";
 
 export class SignInUseCase implements SignIn{
 	constructor(

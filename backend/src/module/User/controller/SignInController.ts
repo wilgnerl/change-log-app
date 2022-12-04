@@ -1,7 +1,7 @@
 import { MissingParamError, SignInError } from "../../../shared/errors";
 import { badRequest, serverError, sucess } from "../../../shared/helpers";
 import { Controller, HttpRequest, HttpResponse } from "../../../shared/protocols";
-import { SignIn } from "../../domain/usecases";
+import { SignIn } from "../domain/usecases";
 
 export class SignInController implements Controller{
 	constructor(

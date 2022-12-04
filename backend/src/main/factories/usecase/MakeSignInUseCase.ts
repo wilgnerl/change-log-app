@@ -1,4 +1,4 @@
-import { SignIn } from "../../../module/domain/usecases";
+import { SignIn } from "../../../module/User/domain/usecases";
 import { UserDatabase } from "../../../module/User/repository";
 import { SignInUseCase } from "../../../module/User/usecase";
 import { JWT, Bcrypt } from "../../../shared/infra/cryptography";

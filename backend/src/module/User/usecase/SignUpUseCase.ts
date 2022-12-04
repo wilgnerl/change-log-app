@@ -1,6 +1,6 @@
 import { Bcrypt } from "../../../shared/infra/cryptography";
-import { UserRepository } from "../../domain/repository";
-import { SignUp, SignUpInput } from "../../domain/usecases";
+import { UserRepository } from "../domain/repository";
+import { SignUp, SignUpInput } from "../domain/usecases";
 
 export class SignUpUseCase implements SignUp{
 	constructor(

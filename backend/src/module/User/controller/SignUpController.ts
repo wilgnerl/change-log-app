@@ -1,7 +1,7 @@
 import { MissingParamError, SignUpError } from "../../../shared/errors";
 import { badRequest, serverError, sucess } from "../../../shared/helpers";
 import { Controller, HttpRequest, HttpResponse } from "../../../shared/protocols";
-import { SignUp } from "../../domain/usecases";
+import { SignUp } from "../domain/usecases";
 
 export class SignUpController implements Controller{
 	constructor(
