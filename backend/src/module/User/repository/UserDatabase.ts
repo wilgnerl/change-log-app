@@ -22,7 +22,7 @@ export class UserDatabase implements UserRepository{
 			}
 		});
 
-		if(!userExists){
+		if(userExists === null){
 			return false;
 		}
 
@@ -35,7 +35,7 @@ export class UserDatabase implements UserRepository{
 			}
 		});
 
-		if(!userExists){
+		if(userExists === null){
 			return false;
 		}
 
