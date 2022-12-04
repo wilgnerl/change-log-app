@@ -3,6 +3,7 @@ export interface HttpRequest{
     header?: any
     headers?: any
     params?: any
+    query?: any
 }
 
 export interface HttpResponse{

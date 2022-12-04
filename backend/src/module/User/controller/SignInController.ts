@@ -1,5 +1,5 @@
-import { MissingParamError, SignInError } from "../../../shared/errors";
-import { badRequest, serverError, sucess } from "../../../shared/helpers";
+import { MissingParamError } from "../../../shared/errors";
+import { badRequest, serverError, sucess, unauthorized } from "../../../shared/helpers";
 import { Controller, HttpRequest, HttpResponse } from "../../../shared/protocols";
 import { SignIn } from "../domain/usecases";
 
@@ -20,7 +20,7 @@ export class SignInController implements Controller{
 			const response = await this.signInUseCase.execute({email, password});
 
 			if(!response){
-				return badRequest(new SignInError());
+				return unauthorized();
 			}
 
 			return sucess(response);
