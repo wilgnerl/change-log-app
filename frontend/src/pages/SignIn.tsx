@@ -26,7 +26,7 @@ const SignIn: React.FC = () => {
 	async function onSubmit(values: any) {
 		console.log(values);
 		try{
-			const url = "http://localhost:3333/api/user/signin";
+			const url = "https://change-log-app-production.up.railway.app/api/user/signin";
 			const response = await axios.post(
 				url, values
 			);

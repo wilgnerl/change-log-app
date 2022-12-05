@@ -22,7 +22,7 @@ const SignUp: React.FC = () => {
 	const navigate = useNavigate();
 	async function onSubmit(values: any) {
 		try{
-			const url = "http://localhost:3333/api/user/signup";
+			const url = "https://change-log-app-production.up.railway.app/api/user/signup";
 			await axios.post(
 				url, values
 			);
