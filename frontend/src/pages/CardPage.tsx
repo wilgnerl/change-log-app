@@ -212,9 +212,7 @@ const CardPage: React.FC = () => {
 					</Flex>
 				</FormControl>
 			</form>
-			
-			
-								
+									
 			<SimpleGrid m="4" spacing={4} templateColumns='repeat(auto-fill, minmax(270px, 1fr))'>
 				{
 					data.length > 0 ? 
