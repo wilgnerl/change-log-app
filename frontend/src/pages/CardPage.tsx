@@ -55,14 +55,15 @@ const CardPage: React.FC = () => {
 		register,
 		formState: { isSubmitting },
 	} = useForm();
-	
+	const navigate = useNavigate();
 	useEffect(() => {
 		const url = "https://change-log-app-production.up.railway.app/api/card?page=1&limit=10";
 		axios.get(
 			url, {
 				headers: { Authorization: `Bearer ${userData.accessToken}` }
 			}
-		).then((response) => setData(response.data));
+		).then((response) => setData(response.data))
+			.catch ((error) => navigate("/sigin"));
 
 	}, []);
 
@@ -126,7 +127,6 @@ const CardPage: React.FC = () => {
 			);
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}
@@ -166,7 +166,6 @@ const CardPage: React.FC = () => {
 
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}
@@ -197,7 +196,6 @@ const CardPage: React.FC = () => {
 
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}
