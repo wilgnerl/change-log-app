@@ -126,7 +126,6 @@ const CardPage: React.FC = () => {
 			);
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}
@@ -166,7 +165,6 @@ const CardPage: React.FC = () => {
 
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}
@@ -197,7 +195,6 @@ const CardPage: React.FC = () => {
 
 			setData(newResponse.data);
 			
-			console.log(values);
 		} catch(err){
 			console.log(err);
 		}

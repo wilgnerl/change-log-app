@@ -24,7 +24,6 @@ const SignIn: React.FC = () => {
 	} = useForm();
 	const navigate = useNavigate();
 	async function onSubmit(values: any) {
-		console.log(values);
 		try{
 			const url = "https://change-log-app-production.up.railway.app/api/user/signin";
 			const response = await axios.post(
