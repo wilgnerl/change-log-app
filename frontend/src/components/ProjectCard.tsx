@@ -21,13 +21,16 @@ import {
 	ModalCloseButton,
 } from "@chakra-ui/react";
 
-export default function ProjectCard(){
+interface propsType {
+    title?: string
+}
+const ProjectCard: React.FC = (props: propsType) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
 		<>
 			<Card bg="gray.500" ml="20px">
 				<CardHeader>
-					<Heading size='md'>Titulo</Heading>
+					<Heading size='md'>{props.title}</Heading>
 					<Text fontSize="xs">Creator: Wigner Lopes</Text>
 				</CardHeader>
 				<CardBody>
@@ -68,7 +71,7 @@ export default function ProjectCard(){
 			<Modal isOpen={isOpen} onClose={onClose}>
 				<ModalOverlay />
 				<ModalContent>
-					<ModalHeader>Modal Title</ModalHeader>
+					<ModalHeader>{props.title}</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
 						<Stack divider={<StackDivider />} bg="gray.100" p="20px" mt="10px"borderRadius="10px" spacing='4'>
@@ -123,4 +126,6 @@ export default function ProjectCard(){
 		</>
         
 	);
-}
+};
+
+export default ProjectCard;

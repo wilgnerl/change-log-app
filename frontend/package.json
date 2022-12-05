@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/metropolis": "^4.5.3",
     "@fontsource/roboto-slab": "^4.5.9",
+    "axios": "^1.2.0",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.40.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

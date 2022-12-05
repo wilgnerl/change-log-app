@@ -9,7 +9,8 @@ import {
 import { Link } from "react-router-dom";
 
 
-export default function Home(){
+const Home: React.FC = () => {
+    
 	return(
 		<>
         
@@ -51,4 +52,6 @@ export default function Home(){
 			
 		</>
 	);
-}
+};
+
+export default Home;
