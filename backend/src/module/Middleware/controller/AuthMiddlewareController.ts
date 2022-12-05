@@ -20,7 +20,6 @@ export class AuthMiddlewareController implements Middleware{
 			return forbidden(new AccessDeniedError());
 
 		} catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}

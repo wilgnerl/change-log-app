@@ -11,7 +11,6 @@ export class VerifyRefreshTokenUseCase implements VerifyRefreshToken{
 			isValid = await this.jwt.decryptRefreshToken(refreshToken);
 			
 		}catch(err){
-			console.log(err);
 			return false;
 		}
 

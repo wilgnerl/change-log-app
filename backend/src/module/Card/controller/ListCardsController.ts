@@ -15,7 +15,6 @@ export class ListCardsController implements Controller{
 
 			return sucess(response);
 		}catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}

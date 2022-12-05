@@ -25,7 +25,6 @@ export class AddNewDescriptionController implements Controller{
 
 			return sucess("New description added !!");
 		} catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}

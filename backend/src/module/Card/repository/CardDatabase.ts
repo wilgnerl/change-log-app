@@ -159,7 +159,6 @@ export class CardDatabase implements CardRepository{
 		return card;
 	}
 	async delete({cardId}: DeleteInput): Promise<boolean> {
-		console.log(cardId);
 		await prisma.card.delete({
 			where:{
 				id: cardId

@@ -24,7 +24,6 @@ export class DeleteCardController implements Controller{
 
 			return sucess("Card Deleted!");
 		}catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}
