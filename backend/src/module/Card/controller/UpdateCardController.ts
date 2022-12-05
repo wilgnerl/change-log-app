@@ -23,7 +23,6 @@ export class UpdateCardController implements Controller{
 
 			return sucess("Card Updated!");
 		}catch(err){
-			console.log(err);
 			return serverError(err as Error);
 		}
 	}

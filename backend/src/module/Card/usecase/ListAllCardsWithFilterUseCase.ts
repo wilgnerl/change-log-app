@@ -9,7 +9,6 @@ export class ListAllCardsWithFilterUseCase implements ListAllCardsWithFilter{
 	async execute(input: ListAllCardsWithFilterInput): Promise<Card[]> {
 		
 		Object.keys(input).forEach((key) => input[key as keyof ListAllCardsWithFilterInput] == null && delete input[key as keyof ListAllCardsWithFilterInput]);
-		console.log(input);
 		const cardsFiltered = await this.cardRepository.listAllWithFilter({...input});
 		return cardsFiltered;
 	}
